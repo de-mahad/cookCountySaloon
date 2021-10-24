@@ -1,4 +1,5 @@
 <?php
+// Changed the background color to website color 
 include 'email-functions.php';
 $name;
 $time;
