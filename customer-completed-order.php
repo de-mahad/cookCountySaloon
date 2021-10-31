@@ -984,6 +984,9 @@ $address;
                                                                                                 Description
                                                                                             </td>
                                                                                             <td align="right" style="font-size:16px; line-height:24px; color:#141414; font-family: AudibleSansRg, Arial, sans-serif;">
+                                                                                                Quantity
+                                                                                            </td>
+                                                                                            <td align="right" style="font-size:16px; line-height:24px; color:#141414; font-family: AudibleSansRg, Arial, sans-serif;">
                                                                                                 Price
                                                                                             </td>
                                                                                         </tr>
@@ -1080,6 +1083,17 @@ $address;
                                                                                                     <table cellpadding="0" cellspacing="0" border="0" align="right" role="presentation" class="width100p aligncenter centertable">
                                                                                                         <tr>
                                                                                                             <td align="left" style="font-size:16px; line-height:24px; color:#141414; font-family: AudibleSansRg, Arial, sans-serif;" class="aligncenter">
+
+                                                                                                                <?php 
+                                                                                                                echo 'X';echo $value['quantity'] ?>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    </table>
+                                                                                                </th>
+                                                                                                <th align="right" style="vertical-align:top  !important;" class="block width100p">
+                                                                                                    <table cellpadding="0" cellspacing="0" border="0" align="right" role="presentation" class="width100p aligncenter centertable">
+                                                                                                        <tr>
+                                                                                                            <td align="right" style="font-size:16px; line-height:24px; color:#141414; font-family: AudibleSansRg, Arial, sans-serif;padding: 10px; padding-top: 0px;" class="aligncenter">
 
                                                                                                                 <!--[if !mso]>
 
@@ -1271,7 +1285,7 @@ UfGHDcgxipW+Ep/nkbWGug3CZSb9WiVUG3RsDeedNUAUhP2LLvrRLf0UJp0H
 n+d9Blvb0rTV/n6UjkoqmawCImd0bI6yyG6A8nylTgiGs+M+lntfS6jydAJ9
 mJWsA6J4tm/fnn/2YrgS86pCTgSUIDBfmqcW+oNDuaRPF+eIAHKcl9HluhHZ
 jEU4ltoNvs+wch8b6uW/Y+8z+f4va8Nu5Z1Ou4cAAAAASUVORK5CYII=" style="-ms-interpolation-mode: bicubic; clear: both; display: inline-block; height: auto; margin-right: 4px; max-height: 1em; max-width: 1em; outline: none; text-decoration: none; vertical-align: text-top; width: auto" />
-                                                                                                                    <a href="https://maps.google.com/maps?q=Paramount+Theatre%2C+2025+Broadway" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none"><?php echo $address ?></a>
+                                                                                                                    <a href="https://www.google.com/maps/place/Cook+County+Saloon/@53.5165,-113.4951,15z/data=!4m5!3m4!1s0x0:0x709cb7eccc65bbb4!8m2!3d53.5165002!4d-113.4950146" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none"><?php echo $address ?></a>
                                                                                                                     <table class=" spacer " style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
                                                                                                                         <tbody>
                                                                                                                             <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
@@ -1366,7 +1380,7 @@ XIoAuhTB6zPpJh3JGN7y2C0S+D8xycPYsjmMTdrDcmbxy12VleMB1SWoZweo
 5PBlpsHIP+bheGgB5pALJFkLsFWNVMyFoKm8DYUUe480hSdf+ESxfUjQhhCO
 cflaDoI2hObL6fv4hqcwtPaSNHqxWd+Lo+jeKf4rTphm2ahK/oc0Dx74L2Hl
 /U+i6bW9AAAAAElFTkSuQmCC" style="-ms-interpolation-mode: bicubic; clear: both; display: inline-block; height: auto; margin-right: 4px; max-height: 1em; max-width: 1em; outline: none; text-decoration: none; vertical-align: text-top; width: auto" />
-                                                                                                                    <a target="_blank" href="https://www.universe.com/users/5RQDCM" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none"><?php echo $name; ?></a>
+                                                                                                                    <?php echo $name; ?>
                                                                                                                     <table class=" spacer " style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
                                                                                                                         <tbody>
                                                                                                                             <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
@@ -1502,11 +1516,9 @@ cflaDoI2hObL6fv4hqcwtPaSNHqxWd+Lo+jeKf4rTphm2ahK/oc0Dx74L2Hl
                                                                                                                                     </tr>
                                                                                                                                 </tbody>
                                                                                                                             </table>
-                                                                                                                            <center style="min-width: none !important; width: 100%">
-                                                                                                                                <div>
-                                                                                                                                    <?php echo WC_Order_Barcodes()->display_barcode($order->id); ?>
-                                                                                                                                </div>
-                                                                                                                            </center>
+                                                                                                                            <?php
+                                                                                                                            WC_Order_Barcodes()->get_email_barcode($order);
+                                                                                                                            ?>
                                                                                                                             <!-- <small class="qr-code-ref" style="color: #6F7881; display: block; font-size: 12px; font-weight: normal; line-height: 20px; margin: auto; text-align: center">R6500600</small> -->
                                                                                                                             <table class=" spacer " style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
                                                                                                                                 <tbody>
@@ -1587,7 +1599,7 @@ cflaDoI2hObL6fv4hqcwtPaSNHqxWd+Lo+jeKf4rTphm2ahK/oc0Dx74L2Hl
 
                                                                                                 <tr style="padding: 30px; text-align: left; align-items: center; ">
                                                                                                     <td height="35px" style="-moz-hyphens: none; -webkit-hyphens: none; border-collapse: collapse !important; color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; hyphens: none; line-height: 30px; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word" align="left" valign="top"><?php echo $value['label'] ?></td>
-                                                                                                    <td height="45px" style="-moz-hyphens: none; -webkit-hyphens: none; border-collapse: collapse !important; color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; hyphens: none; line-height: 30px; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: right; vertical-align: top; word-wrap: break-word" align="right" valign="top"><?php echo $value['value'] ?></td>
+                                                                                                    <td height="45px" style="-moz-hyphens: none; -webkit-hyphens: none; border-collapse: collapse !important; color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; hyphens: none; line-height: 30px; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: right; vertical-align: top; word-wrap: break-word" align="right" valign="top"><?php echo $value['value'] ?></td>
                                                                                                 </tr>
 
                                                                                             <?php
@@ -2095,6 +2107,23 @@ cflaDoI2hObL6fv4hqcwtPaSNHqxWd+Lo+jeKf4rTphm2ahK/oc0Dx74L2Hl
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
+                                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="margin-bottom-lg" style="page-break-inside:avoid;margin-bottom:40px; margin-top: 40px;">
+                                                                        <tr>
+                                                                            <td align="center" style="border-collapse:collapse;">
+                                                                                <p class="address" style="line-height:2em;margin:0;">
+                                                                                    <a href="https://www.stocksy.com" style="font-weight:600;text-transform:none;color:#191919;text-decoration:none;border-bottom:1px solid #ddd;cursor:pointer;"><img src="https://ccs.meteorco.de/wp-content/uploads/2021/10/cook-county-saloon-40th-anniversary-logo-2021.png" id="headerImage" style="border:0;height:auto;line-height:100%;outline:none;text-decoration:none;max-width:210px ;margin-bottom:25px;"></a>
+
+                                                                                    <small>
+                                                                                        8010 Gateway Blvd NW, Edmonton, AB T6E 1X3, Canada <br>
+                                                                                        <a class="link" href="tel:+16468634443" style="font-weight:600;text-transform:none;color:#191919;text-decoration:none;cursor:pointer;">+1 780-432-2665</a><br>
+                                                                                        <a class="link" href="mailto:https://cookcountysaloon.com/" style="font-weight:600;text-transform:none;color:#191919;text-decoration:none;cursor:pointer;">COOK COUNTY SALOON</a><br>
+                                                                                    </small>
+                                                                                </p>
+
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -2114,150 +2143,7 @@ cflaDoI2hObL6fv4hqcwtPaSNHqxWd+Lo+jeKf4rTphm2ahK/oc0Dx74L2Hl
                             </tr>
                         </tbody>
                     </table>
-                    <table class="emailer-footer container float-center" align="center" style="background-color: transparent !important; border-collapse: collapse; border-spacing: 0; float: none; margin: 0 auto; padding: 0; text-align: center; vertical-align: top; width: 580px" bgcolor="transparent">
-                        <tbody>
-                            <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
-                                <td style="-moz-hyphens: none; -webkit-hyphens: none; border-collapse: collapse !important; color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; hyphens: none; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word" align="left" valign="top">
-                                    <table class=" row" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%">
-                                        <tbody>
-                                            <tr>
-                                                <td align="center" valign="top">
-                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="max-width:600px !important; width:600px; background-color:#f6f6f7 ; " width="600">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td height="10" style="height:10px; font-size:0px; line-height:0px; background-color:#f6f6f7; max-width:600px; ">&nbsp;
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="ft_13" align="center" style="font-family: 'Lato', sans-serif; font-weight:900; font-size:13px; line-height:14px; color:#2e343e;" valign="top"><a href="https://mail.picmonkey.com/e2t/tc/VXjJWS91dbNXW3Pn8d22tRr9vW8pQGPD4jt8sWN63y6mQ3p_8yV1-WJV7CgFqwW7HwBrD93C299W5z27Vf5Mn20GVZ7Ql399bDxsN3Dgz-Y92WGgW2ChpVK6_KMTJV6g61n28gWz6W9lV4rV7dCqSTN5HFpCxpBrfjW1DRg175-TF6SW80Fbx17NSnX7W60zBMX5fycq_W1rgTj-8Gnj50VZF_M29k6gNKN1_YBlHXVHHKW8jfdTB7JBgdHW486HfH3fCnRZW2m4bdp1cl5mxW2C2lYD6CPbxCW1r1XYZ7Nmw2BW5wdcWh7p-LZB3fZ81" style="color:#2e343e;text-decoration:none; text-transform: uppercase; font-weight:900; letter-spacing: 2px;" target="_blank" data-hs-link-id="0">FOLLOW &amp; SHARE</a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td height="20" style="height:20px; font-size:0px; line-height:0px; background-color:#f6f6f7; max-width:600px; ">&nbsp;
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="center" valign="top">
-                                                                    <table width="70" border="0" cellspacing="0" cellpadding="0" align="center" style="width:70px;">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td height="2" style="height:2px; font-size:0px; line-height:0px; background-color:#dddddd; max-width:70px; ">&nbsp;
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td height="30" style="height:30px; font-size:0px; line-height:0px; background-color:#f6f6f7; max-width:600px; ">&nbsp;
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="center" valign="top">
-                                                                    <table bgcolor="#f6f6f7" class="em_wrapper" style="width: 600px;" border="0" cellspacing="0" cellpadding="0" width="600" align="center">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td class="em_h10" style="line-height: 0px; font-size: 0px; height: 12px;" height="12">&nbsp;
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td bgcolor="#f6f6f7" align="center">
-                                                                                    <table bgcolor="#f6f6f7" border="0" cellspacing="0" cellpadding="0" align="center">
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td class="em_side" style="width: 38px;" width="38">&nbsp; </td>
-                                                                                                <td style="width: 36px;" width="36" align="center" valign="top"> <a style="text-decoration: none;" href="https://mail.picmonkey.com/e2t/tc/VXjJWS91dbNXW3Pn8d22tRr9vW8pQGPD4jt8sWN63y6mw2-HvfV1-WJV7CgNFwW40Z3xl2Wty1JW7rh-402JVFRkW2rrk866v_g2rW3Z5f6D4SDvgKW6_xgd96J3KwrW6RCzXv79hdvVW9h2XvC7t8nbKW6d0tHh79Tk4RW4fK9bM1mnXdvW8p9F7_3RWFyDMyJ9ZCxj5bqW5m_ltb87hgrsW4bTtcY97dQlYW86XSs299KPlCW16p9258mn1zgW8QcRyR12TTypW1kDDCP7q2vS0W121l6N3jBD263j5G1" target="_blank" data-hs-link-id="0">
-                                                                                                        <img style="display: block; font-family: Arial, sans-serif; font-size: 11px; line-height: 13px; color: #ffffff; max-width: 36px;" src="https://images.emailaptitude.com/Pic_Monkey/2020/07_July/07.20.20_Make-This-Thing/fb.png" border="0" alt="Facebook" width="36" height="36"> </a> </td>
-                                                                                                <td class="em_side" style="width: 38px;" width="38">&nbsp; </td>
-                                                                                                <td style="width: 36px;" width="36" align="center" valign="top"> <a style="text-decoration: none;" href="https://mail.picmonkey.com/e2t/tc/VXjJWS91dbNXW3Pn8d22tRr9vW8pQGPD4jt8sWN63y6mw2-HvfV1-WJV7CgQ1fV3xbWB6R2TlvW4_1D1M2j3HNXW51B6Ky3772RxW6BqjWz4LTPN8W8zHDrH6ngVBXW1yDctR3j9v9SW3kBXKQ5BGcsNW8-80YB4Dl6zPW1B3QQR5Fg0fNW133l413-bL4YW4ff6mV8wPmlsW7rM2mw3cP2K3W3BW5zd4wRK_7W1LrxYg5LtK1hW361Yh44r-dJDW8KbRcM21qyMSW8ycVv99flD-RW2CVxG05SmV333jYJ1" target="_blank" data-hs-link-id="0"> <img style="display: block; font-family: Arial, sans-serif; font-size: 11px; line-height: 13px; color: #ffffff; max-width: 36px;" src="https://images.emailaptitude.com/Pic_Monkey/2020/07_July/07.20.20_Make-This-Thing/ig.png" border="0" alt="Twitter" width="36" height="36"> </a> </td>
-                                                                                                <td class="em_side" style="width: 38px;" width="38">&nbsp; </td>
-                                                                                                <td style="width: 36px;" width="36" align="center" valign="top"> <a style="text-decoration: none;" href="https://mail.picmonkey.com/e2t/tc/VXjJWS91dbNXW3Pn8d22tRr9vW8pQGPD4jt8sWN63y6mw2-HvfV1-WJV7CgLT-W8F05nZ6JsDbFW40jFVZ18QTg4W5C_0ns2GSdz3W8Nwqlg1J075LW5DNZFk7VgM7LW5-MTkJ3wzs52W5RxQK14JrqHnW7gfwwb8Lsm6yVlMDWT5vrNkbW8C3sCt6J2Rl5W5SzdDq3J911DW6MXqtM50zYVlW3tVdHD5Qlf59W6Z6TSP8CXcZbW1N2rLn2xDz_TW5SGt4v6wdJKSW4xdx3b3WfkR-W6MyDl28rgLFJ3pZN1" target="_blank" data-hs-link-id="0"> <img style="display: block; font-family: Arial, sans-serif; font-size: 11px; line-height: 13px; color: #ffffff; max-width: 36px;" src="https://images.emailaptitude.com/Pic_Monkey/2020/07_July/07.20.20_Make-This-Thing/tw.png" border="0" alt="Instagram" width="36" height="36"> </a> </td>
-                                                                                                <td class="em_side" style="width: 38px;" width="38">&nbsp; </td>
 
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="em_h10" style="line-height: 0px; font-size: 0px; height: 12px;" height="12">&nbsp;
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td height="40" style="height:40px; font-size:0px; line-height:0px; background-color:#f6f6f7; max-width:600px; ">&nbsp;</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-
-                                            <!--=== // social section=== -->
-
-                                            <!--===footer section=== -->
-                                            <tr>
-                                                <td align="center" valign="top">
-                                                    <table bgcolor="#502002" align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:600px;" width="600">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td align="center" valign="top">
-                                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:600px;" width="600">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td class="em_height" height="50" style="font-size:1px; line-height:1px; height:50px;"></td>
-                                                                            </tr>
-
-                                                                            <tr>
-                                                                                <td class="ft_13" align="center" style="font-family: 'Lato', sans-serif; font-weight:400; font-size:13px; line-height:22px; color:#f6f6f7; text-decoration:none;" valign="top">
-                                                                                    <br>
-                                                                                    8010 Gateway Blvd NW &nbsp;&nbsp;|&nbsp;&nbsp; &nbsp;&nbsp;Edmonton&nbsp;&nbsp; &nbsp;&nbsp;|&nbsp;&nbsp; AB T6E 1X3
-                                                                                    &nbsp;Canada
-                                                                                    <br>
-                                                                                    <!-- Our app is available on the
-                                                                                    <a href="https://mail.picmonkey.com/e2t/tc/VXjJWS91dbNXW3Pn8d22tRr9vW8pQGPD4jt8sWN63y6mQ2-HvyV1-WJV7CgQYBW7YJFnj8lkFMfW7CkGb33z1scxW7f3cp94wMWXdN3qgzjmYG2VxW1PdKn_1ykkw5W3BNMF55Q9br6W6XM_YN2knlC_W4Kk0Kg2vdq67W1mf9W35mvHNVW1n94H693mgZ_W7RnZVl7LVQTsW8hfbdY8RHK-lN5KFY-MND0VZW4t_Blg5sy6JkN4sjzYDT_8rNW1l9K6T62dkD5W3s3H026Hb_HZW9gWp7h96pjMYN20VP60CrKfVV5Lpcm5pg2qh37Ss1" style="text-decoration:underline; color:#f6f6f7;font-weight:700;" target="_blank" data-hs-link-id="0">APP
-                                                                                        STORE</a> or <a href="https://mail.picmonkey.com/e2t/tc/VXjJWS91dbNXW3Pn8d22tRr9vW8pQGPD4jt8sWN63y6n52-HvSV1-WJV7CgzPTVkcnR06yD5ZjW5_7Q2X7xsShjW60qtXm3t1fYMW2sdQHZ3Pgg7gW5rzPWD6hb7PKW2KrXN56Dk7MkW6vB_1y8D0XJjW5VsVf05P2ZvWN57PlNHRCjMHW1tF8GH88CZ33N2385c42H5WDW5mrPDg56ylH_W8qKjZy6nwgPtW2Dsmdf8zSC-RW21Qnxt8yjlt7N7dl6zpFMKzJW2CG6m74PJfyyW2KZQLM7pjvWsW6Rlg8l5KXFGDW34SblK40q59TN9k7K8crzydCVyQm5d13D8gt2zT1" style="text-decoration:underline; color:#f6f6f7;font-weight:700;" target="_blank" data-hs-link-id="0">GOOGLE
-                                                                                        PLAY</a> -->
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="em_height" height="50" style="font-size:1px; line-height:1px; height:50px;"></td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <table class="milkyway-content flash-info row" style="border-collapse: collapse; border-spacing: 0; color: #6F7881; display: table; hyphens: none; margin: auto; max-width: 100%; padding: 0; position: relative; text-align: left; vertical-align: top; width: 280px !important">
-                                                                        <tbody>
-                                                                            <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
-                                                                                <th class=" small-12 large-12 columns first last" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0; text-align: left; width: 564px" align="left">
-                                                                                    <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                                                        <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
-                                                                                            <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
-                                                                                                <div class="flash_message">
-                                                                                                    <img src="https://ccs.meteorco.de/wp-content/uploads/2021/09/cropped-cropped-cooklogo_HQ2.png" alt="">
-                                                                                                </div>
-                                                                                            </th>
-                                                                                            <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
-                                                                                        </tr>
-                                                                                    </table>
-                                                                                </th>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </center>
             </td>
         </tr>
